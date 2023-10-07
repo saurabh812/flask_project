@@ -1,0 +1,25 @@
+<!-- templates/product_search_result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search Results</title>
+</head>
+<body>
+    <h1>Product Search Results</h1>
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>Name:</strong> {{ product['product_name'] }}<br>
+                <strong>Image:</strong> <img src="{{ product['product_image'] }}" alt="{{ product['product_name'] }}"><br>
+                <strong>Title:</strong> {{ product['product_title'] }}<br>
+                <strong>Price:</strong> {{ product['product_price'] }}<br>
+                <strong>Link:</strong> <a href="{{ product['product_link'] }}" target="_blank">View Product</a><br>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

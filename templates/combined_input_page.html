@@ -1,0 +1,142 @@
+<!-- templates/combined_input_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Input</title>
+</head>
+<body>
+    <h1>Product Input</h1>
+
+    <!-- Form for entering Amazon Product URL -->
+    <form action="{{ url_for('product_details') }}" method="post">
+        <label for="amazon_url">Enter Amazon Product URL:</label>
+        <input type="text" id="amazon_url" name="amazon_url" required>
+        <button type="submit">Get Product Details</button>
+    </form>
+
+    <hr>
+
+    <!-- Form for searching products by name -->
+    <form action="/display_product" method="post">
+        <label for="product_name">Product Name:</label>
+        <input type="text" name="product_name" required>
+        <button type="submit">Display available Products</button>
+    </form>
+
+    <!-- Display products if available -->
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ url_for('display_product', product_name=product['product_name']) }}">{{ product['product_name'] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .scroll-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .scroll-button:hover {
+            background-color: #0056b3;
+
+            .alert alert-primary {
+                color: #0088cc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+   
+        <nav class="navbar bg-body-tertiary">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+                            class="d-inline-block align-text-top">
+                        Bootstrap
+                    </a>
+                </div>
+            </nav>
+            <form action="{{ url_for('product_details') }}" method="post">
+                <label for="amazon_url">Enter Amazon Product URL:</label>
+                <input type="text" id="amazon_url" name="amazon_url" required>
+                <button type="submit">Get Product Details</button>
+            </form>
+    </div>
+    </nav>
+
+    <div class="scroll-container">
+        <button class="scroll-button">Button 1</button>
+        <button class="scroll-button">Button 2</button>
+        <button class="scroll-button">Button 3</button>
+        <button class="scroll-button">Button 4</button>
+        <button class="scroll-button">Button 4</button>
+        <button class="scroll-button">Button 5</button>
+        <button class="scroll-button">Button 6s</button>
+        <!-- Add more buttons as needed -->
+    </div>
+    <div class="container">
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+        <button class="scroll-button">Button 6s</button>
+    </div>
+     <!-- Form for searching products by name -->
+     <form action="/display_product" method="post">
+        <label for="product_name">Product Name:</label>
+        <input type="text" name="product_name" required>
+        <button type="submit">Display available Products</button>
+    </form>
+
+    <!-- Display products if available -->
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ url_for('display_product', product_name=product['product_name']) }}">{{ product['product_name'] }}</a></li>
+        {% endfor %}
+    </ul>
+
+    </div>
+</body>
+
+</html>
